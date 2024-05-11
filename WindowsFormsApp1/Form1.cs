@@ -107,13 +107,14 @@ namespace WindowsFormsApp1
 
         private void StopGame()
         {
-            if (!timer1.Enabled)
-            {
-                return;
-            }
             timer1.Stop();
             ResolutionNud.Enabled = true;
             DensityNud.Enabled = true;
+        }
+        private void ContinueGame()
+        {
+            timer1.Start();
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -124,12 +125,25 @@ namespace WindowsFormsApp1
         private void bStart_Click(object sender, EventArgs e)
         {
             StartGame();
-           
+            bPause.Text = "стоп";
+            ResolutionNud.Value = 3;
+            DensityNud.Value = 2;
+
         }
 
         private void bPause_Click(object sender, EventArgs e)
         {
-            StopGame();
+            if (timer1.Enabled)
+            {
+                StopGame();
+                bPause.Text = "продолжить";
+            }
+            else
+            {
+                ContinueGame();
+                bPause.Text = "стоп";
+            }
+            
         }
     }
 }
