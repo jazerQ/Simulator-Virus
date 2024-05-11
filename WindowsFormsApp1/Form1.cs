@@ -54,18 +54,66 @@ namespace WindowsFormsApp1
         {
             graphics.Clear(Color.Black);
 
+            bool[,] newField = new bool[cols, rows];
+
             for(int x = 0; x < cols; x++)
             {
                 for(int y = 0; y < rows; y++)
                 {
-                    if (field[x, y])
+                    var NeighboursCount = CountNeighbours(x,y);
+                    var hasLife = field[x, y];
+
+                    if(!hasLife && NeighboursCount == 3)
+                    {
+                        newField[x, y] = true;
+                    }
+                    else if(hasLife && (NeighboursCount < 2 || NeighboursCount > 3))
+                    {
+                        newField[x, y] = false;
+
+                    }
+                    else
+                    {
+                        newField[x, y] = field[x, y];
+                    }
+                    if (hasLife)
                     {
                         graphics.FillRectangle(Brushes.DarkMagenta, x * resolution, y * resolution, resolution, resolution);
                     }
                 }
             }
+            field = newField;
             pictureBox1.Refresh();
 
+        }
+        private int CountNeighbours(int x, int y)
+        {
+            int cnt = 0;
+            for(int i = -1; i < 2; i++)
+            {
+                for(int j = -1; j < 2; j++)
+                {
+                    
+                    if (i != 0 || j != 0) {
+                        if (field[(x + i + cols) % cols, (y + j + rows) % rows])
+                        {
+                            cnt++;
+                        }
+                    }
+                }
+            }
+            return cnt;
+        }
+
+        private void StopGame()
+        {
+            if (!timer1.Enabled)
+            {
+                return;
+            }
+            timer1.Stop();
+            ResolutionNud.Enabled = true;
+            DensityNud.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -81,7 +129,7 @@ namespace WindowsFormsApp1
 
         private void bPause_Click(object sender, EventArgs e)
         {
-
+            StopGame();
         }
     }
 }

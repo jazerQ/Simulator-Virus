@@ -76,33 +76,33 @@
             // 
             // bPause
             // 
-            this.bPause.BackColor = System.Drawing.Color.LightBlue;
+            this.bPause.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.bPause.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bPause.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bPause.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bPause.Location = new System.Drawing.Point(22, 210);
             this.bPause.Name = "bPause";
             this.bPause.Size = new System.Drawing.Size(120, 36);
             this.bPause.TabIndex = 5;
-            this.bPause.Text = "PAUSE";
+            this.bPause.Text = "стоп";
             this.bPause.UseVisualStyleBackColor = false;
             this.bPause.Click += new System.EventHandler(this.bPause_Click);
             // 
             // bStart
             // 
-            this.bStart.BackColor = System.Drawing.Color.LightBlue;
+            this.bStart.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.bStart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bStart.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bStart.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bStart.Location = new System.Drawing.Point(22, 168);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(120, 36);
             this.bStart.TabIndex = 4;
-            this.bStart.Text = "START";
+            this.bStart.Text = "Заразить";
             this.bStart.UseVisualStyleBackColor = false;
             this.bStart.Click += new System.EventHandler(this.bStart_Click);
             // 
             // DensityNud
             // 
-            this.DensityNud.BackColor = System.Drawing.Color.SkyBlue;
+            this.DensityNud.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.DensityNud.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DensityNud.Location = new System.Drawing.Point(22, 89);
             this.DensityNud.Minimum = new decimal(new int[] {
@@ -124,6 +124,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label2.Location = new System.Drawing.Point(33, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 20);
@@ -132,7 +133,7 @@
             // 
             // ResolutionNud
             // 
-            this.ResolutionNud.BackColor = System.Drawing.Color.SkyBlue;
+            this.ResolutionNud.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ResolutionNud.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ResolutionNud.Location = new System.Drawing.Point(22, 34);
             this.ResolutionNud.Maximum = new decimal(new int[] {
@@ -159,6 +160,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label1.Location = new System.Drawing.Point(33, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 20);
