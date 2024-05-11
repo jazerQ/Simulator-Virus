@@ -166,8 +166,12 @@ namespace WindowsFormsApp1
                 if (ValidationPassed)
                 {
                     field[x, y] = true;
-                    graphics.FillRectangle(Brushes.DarkMagenta, x * resolution, y * resolution, resolution, resolution);
-                    pictureBox1.Refresh();
+                    if (!timer1.Enabled)
+                    {
+                        graphics.FillRectangle(Brushes.DarkMagenta, x * resolution, y * resolution, resolution, resolution);
+                        pictureBox1.Refresh();
+                    }
+
                 }
             }
             if (e.Button == MouseButtons.Right)
@@ -178,6 +182,11 @@ namespace WindowsFormsApp1
                 if (ValidationPassed)
                 {
                     field[x, y] = false;
+                    if (!timer1.Enabled) {
+                        graphics.FillRectangle(Brushes.Black, x * resolution, y * resolution, resolution, resolution);
+                        pictureBox1.Refresh();
+                    }
+                    
                 }
           
             }
@@ -185,6 +194,11 @@ namespace WindowsFormsApp1
         private bool ValidateMousePosition(int x, int y)
         {
             return x >= 0 && y >= 0 && x < cols && y < rows;
+        }
+
+        private void quit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

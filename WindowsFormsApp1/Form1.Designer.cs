@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.quit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,6 +62,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Black;
+            this.splitContainer1.Panel1.Controls.Add(this.quit);
             this.splitContainer1.Panel1.Controls.Add(this.mutations);
             this.splitContainer1.Panel1.Controls.Add(this.bPause);
             this.splitContainer1.Panel1.Controls.Add(this.bStart);
@@ -195,6 +197,20 @@
             this.timer1.Interval = 40;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // quit
+            // 
+            this.quit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.quit.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.quit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.quit.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.quit.Location = new System.Drawing.Point(22, 417);
+            this.quit.Name = "quit";
+            this.quit.Size = new System.Drawing.Size(120, 66);
+            this.quit.TabIndex = 7;
+            this.quit.Text = "выйти из игры";
+            this.quit.UseVisualStyleBackColor = false;
+            this.quit.Click += new System.EventHandler(this.quit_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +248,7 @@
         private System.Windows.Forms.Button bPause;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label mutations;
+        private System.Windows.Forms.Button quit;
     }
 }
 
