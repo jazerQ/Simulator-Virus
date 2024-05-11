@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         private Graphics graphics;
-        private int resolution;
+        private int resolution = 0;
         private int density;
         private bool[,] field;
         private int rows;
@@ -152,6 +152,39 @@ namespace WindowsFormsApp1
             
         }
 
-        
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(resolution == 0)
+            {
+                return;
+            }
+            if(e.Button == MouseButtons.Left)
+            {
+                var x = e.Location.X / resolution;
+                var y = e.Location.Y / resolution;
+                bool ValidationPassed = ValidateMousePosition(x,y);
+                if (ValidationPassed)
+                {
+                    field[x, y] = true;
+                    graphics.FillRectangle(Brushes.DarkMagenta, x * resolution, y * resolution, resolution, resolution);
+                    pictureBox1.Refresh();
+                }
+            }
+            if (e.Button == MouseButtons.Right)
+            {
+                var x = e.Location.X / resolution;
+                var y = e.Location.Y / resolution;
+                bool ValidationPassed = ValidateMousePosition(x, y);
+                if (ValidationPassed)
+                {
+                    field[x, y] = false;
+                }
+          
+            }
+        }
+        private bool ValidateMousePosition(int x, int y)
+        {
+            return x >= 0 && y >= 0 && x < cols && y < rows;
+        }
     }
 }

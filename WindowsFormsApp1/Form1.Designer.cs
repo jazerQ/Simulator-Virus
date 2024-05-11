@@ -139,9 +139,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label2.Location = new System.Drawing.Point(33, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 20);
+            this.label2.Size = new System.Drawing.Size(102, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Density";
+            this.label2.Text = "Плотность";
             // 
             // ResolutionNud
             // 
@@ -188,6 +188,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(687, 493);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 
             // timer1
             // 
