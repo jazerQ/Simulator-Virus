@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.mutations = new System.Windows.Forms.Label();
             this.bPause = new System.Windows.Forms.Button();
             this.bStart = new System.Windows.Forms.Button();
             this.DensityNud = new System.Windows.Forms.NumericUpDown();
@@ -60,6 +61,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Black;
+            this.splitContainer1.Panel1.Controls.Add(this.mutations);
             this.splitContainer1.Panel1.Controls.Add(this.bPause);
             this.splitContainer1.Panel1.Controls.Add(this.bStart);
             this.splitContainer1.Panel1.Controls.Add(this.DensityNud);
@@ -73,6 +75,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(970, 497);
             this.splitContainer1.SplitterDistance = 275;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // mutations
+            // 
+            this.mutations.AutoSize = true;
+            this.mutations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mutations.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.mutations.Location = new System.Drawing.Point(63, 293);
+            this.mutations.Name = "mutations";
+            this.mutations.Size = new System.Drawing.Size(0, 20);
+            this.mutations.TabIndex = 6;
             // 
             // bPause
             // 
@@ -163,9 +175,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label1.Location = new System.Drawing.Point(33, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 20);
+            this.label1.Size = new System.Drawing.Size(86, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Resolution";
+            this.label1.Text = "Масштаб";
             // 
             // pictureBox1
             // 
@@ -218,6 +230,7 @@
         private System.Windows.Forms.Button bStart;
         private System.Windows.Forms.Button bPause;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label mutations;
     }
 }
 

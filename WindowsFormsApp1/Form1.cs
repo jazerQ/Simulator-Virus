@@ -16,9 +16,11 @@ namespace WindowsFormsApp1
     {
         private Graphics graphics;
         private int resolution;
+        private int density;
         private bool[,] field;
         private int rows;
         private int cols;
+        private int currentGenerations;
         public Form1()
         {
             InitializeComponent();
@@ -28,9 +30,12 @@ namespace WindowsFormsApp1
             if (timer1.Enabled) {
                 return;
             }
+            currentGenerations = 0;
+            mutations.Text = $"Мутация {currentGenerations}";
             ResolutionNud.Enabled = false;
             DensityNud.Enabled = false;
             resolution = (int)ResolutionNud.Value;
+            density = (int)DensityNud.Value;
             rows = pictureBox1.Height / resolution;
             cols = pictureBox1.Width / resolution;
             field = new bool[cols, rows];
@@ -40,7 +45,7 @@ namespace WindowsFormsApp1
             {
                 for(int y = 0; y < rows; y++)
                 {
-                    field[x, y] = rand.Next((int)DensityNud.Value) == 0;
+                    field[x, y] = rand.Next((int)density) == 0;
                 }
 
             }
@@ -83,6 +88,7 @@ namespace WindowsFormsApp1
                 }
             }
             field = newField;
+            mutations.Text = $"Мутация {++currentGenerations}";
             pictureBox1.Refresh();
 
         }
@@ -114,6 +120,8 @@ namespace WindowsFormsApp1
         private void ContinueGame()
         {
             timer1.Start();
+            DensityNud.Value = density;
+            ResolutionNud.Value = resolution;
 
         }
 
@@ -126,8 +134,6 @@ namespace WindowsFormsApp1
         {
             StartGame();
             bPause.Text = "стоп";
-            ResolutionNud.Value = 3;
-            DensityNud.Value = 2;
 
         }
 
@@ -145,5 +151,7 @@ namespace WindowsFormsApp1
             }
             
         }
+
+        
     }
 }
