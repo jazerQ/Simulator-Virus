@@ -4,14 +4,16 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NAudio.Wave;
 
 
 namespace WindowsFormsApp1
 {
-    
+
     public partial class Form1 : Form
     {
         private Graphics graphics;
@@ -21,10 +23,37 @@ namespace WindowsFormsApp1
         private int rows;
         private int cols;
         private int currentGenerations;
+        private SoundPlayer Player = new SoundPlayer();
         public Form1()
         {
+            PlayMusic();
             InitializeComponent();
         }
+        
+
+    public void ConvertMp3ToWav(string mp3FilePath, string wavFilePath)
+    {
+        using (Mp3FileReader mp3 = new Mp3FileReader(mp3FilePath))
+        {
+            using (WaveStream pcmStream = WaveFormatConversionStream.CreatePcmStream(mp3))
+            {
+                WaveFileWriter.CreateWaveFile(wavFilePath, pcmStream);
+            }
+        }
+    }
+    private void PlayMusic() {
+            try
+            {
+                ConvertMp3ToWav(@"C:\Users\user\Downloads\Leaving Home.mp3", @"C:\Users\user\Downloads\Leaving Home.wav");
+                this.Player.SoundLocation = @"C:\Users\user\Downloads\Leaving Home.wav";
+                this.Player.PlayLooping();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error playing sound");
+            }
+        }
+
         private void StartGame()
         {
             if (timer1.Enabled) {
